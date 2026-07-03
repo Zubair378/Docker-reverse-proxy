@@ -16,7 +16,11 @@ docker-reverse-proxy/
     ├── Dockerfile
     └── app.py
 ```
-![Uploading image.png…]()
+
+<img width="1920" height="1080" alt="Screenshot (1192)" src="https://github.com/user-attachments/assets/6d4425ab-a0dd-405f-b4d9-248d87e39235" />
+
+
+
 
 
 ## What's Running
