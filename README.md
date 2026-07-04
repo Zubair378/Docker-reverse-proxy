@@ -17,10 +17,6 @@ docker-reverse-proxy/
     └── app.py
 ```
 
-<img width="1920" height="1080" alt="Screenshot (1192)" src="https://github.com/user-attachments/assets/6d4425ab-a0dd-405f-b4d9-248d87e39235" />
-
-
-
 
 
 ## What's Running
@@ -37,14 +33,14 @@ Every request hitting Nginx gets forwarded to the Flask app behind it.
 
 Docker Compose sets up a private network for every project automatically.
 On that network, each service can be reached by its **service name**
-instead of an IP address — so inside `nginx/default.conf`, the proxy
+instead of an IP address so inside `nginx/default.conf`, the proxy
 target is written as:
 
 ```
 proxy_pass http://backend:3000;
 ```
 
-`backend` here isn't a real hostname on the internet — it only resolves
+`backend` here isn't a real hostname on the internet  it only resolves
 inside this Compose network, pointing to whatever container is running
 the `backend` service. This is handled by Docker's internal DNS, so no
 manual IP configuration is needed.
@@ -53,7 +49,7 @@ Two more details worth noting:
 - `backend` uses `expose` (not `ports`), so port 3000 is reachable by
   other containers on the network but not from outside the machine.
 - `nginx` uses `ports: 5555:80`, making it the only container reachable
-  from the host — visiting `localhost:5555` on your machine reaches port
+  from the host  visiting `localhost:5555` on your machine reaches port
   80 inside the Nginx container.
 
 ## Running It
@@ -90,7 +86,5 @@ docker compose down
 
 ## Possible Extensions
 
-- Swap the single backend for multiple replicas with load balancing
-- Add a health check endpoint for the backend
-- Rebuild the backend in Node.js instead of Flask, for comparison
-- Deploy the same setup to a cloud provider (e.g. AWS, Render)
+ Swap the single backend for multiple replicas with load balancingAdd a health check endpoint for the backend
+Rebuild the backend in Node.js instead of Flask, for comparisonDeploy the same setup to a cloud provider (e.g. AWS, Render)
